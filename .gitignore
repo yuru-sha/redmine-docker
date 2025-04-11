@@ -1,2 +1,6 @@
+# Environment variables
 .env
 
+# Data
+mysql_data/*
+redmine_data/*

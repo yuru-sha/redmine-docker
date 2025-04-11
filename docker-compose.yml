@@ -1,7 +1,7 @@
 services:
   redmine:
     image: redmine:latest
-    container_name: redmine
+    container_name: redmine-web
     restart: always
     ports:
       - 3000:3000
@@ -17,7 +17,7 @@ services:
     volumes:
       - ./redmine_data:/usr/src/redmine/files
     networks:
-      - redmine
+      - redmine_network
 
   mysql:
     image: mysql:8.0
@@ -38,10 +38,8 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - redmine
+      - redmine_network
 
 networks:
-  redmine:
-    name: redmine
+  redmine_network:
     driver: bridge
-
