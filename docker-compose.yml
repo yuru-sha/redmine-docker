@@ -15,7 +15,11 @@ services:
     depends_on:
       - mysql
     volumes:
-      - ./redmine_data:/usr/src/redmine/files
+      - ./redmine/files:/usr/src/redmine/files
+      - ./redmine/plugins:/usr/src/redmine/plugins
+      - ./redmine/public:/usr/src/redmine/public
+      - ./redmine/config:/usr/src/redmine/config
+      - ./redmine/repos:/var/redmine/repos
     networks:
       - redmine_network
 
@@ -31,7 +35,7 @@ services:
       TZ: Asia/Tokyo
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
     volumes:
-      - ./mysql_data:/var/lib/mysql
+      - ./mysql/data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u", "${MYSQL_USER}", "-p${MYSQL_PASSWORD}"]
       interval: 10s
