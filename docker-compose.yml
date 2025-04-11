@@ -17,7 +17,7 @@ services:
     volumes:
       - ./redmine/files:/usr/src/redmine/files
       - ./redmine/plugins:/usr/src/redmine/plugins
-      - ./redmine/public:/usr/src/redmine/public
+      - ./redmine/public/themes:/usr/src/redmine/public/themes
       - ./redmine/config:/usr/src/redmine/config
       - ./redmine/repos:/var/redmine/repos
     networks:
