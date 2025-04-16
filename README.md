@@ -39,10 +39,10 @@ docker-compose down
 
 ### Removing Data
 
-To remove the database and file data, delete the `mysql_data` and `redmine_data` directories:
+To remove the database and file data, delete the `mysql` and `redmine` directories:
 ```bash
 docker-compose down -v # Stops containers and removes volumes defined in docker-compose.yml
-rm -rf mysql_data redmine_data
+rm -rf mysql redmine
 ```
 **Caution:** This will permanently delete all your Redmine data.
 
